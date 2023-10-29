@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator Sederhana</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kalkulator Sederhana</h1>
+        <p>Masukkan angka pertama:</p>
+        <input type="text" id="angka1" placeholder="Angka pertama">
+        <p>Pilih operasi:</p>
+        <select id="operasi">
+            <option value="tambah">Penambahan (+)</option>
+            <option value="kurang">Pengurangan (-)</option>
+            <option value="kali">Perkalian (*)</option>
+            <option value="bagi">Pembagian (/)</option>
+        </select>
+        <p>Masukkan angka kedua:</p>
+        <input type="text" id="angka2" placeholder="Angka kedua">
+        <button class="btn btn-primary" onclick="hitung()">Hitung</button>
+        <p>Hasil: <span id="hasil"></span></p>
+        <br><br><br>
+        <footer class="text-center mt-5">
+            <p>&copy; 2023. Credit by <a href="https://instagram.com/mhmdjalill_?igshid=OGQ5ZDc2ODk2ZA==">Muhammad
+                    Jalil</a></p>
+        </footer>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function hitung() {
+
+            var angka1 = parseFloat(document.getElementById("angka1").value);
+            var operasi = document.getElementById("operasi").value;
+            var angka2 = parseFloat(document.getElementById("angka2").value);
+
+            var hasil;
+            if (operasi === "tambah") {
+                hasil = angka1 + angka2;
+            } else if (operasi === "kurang") {
+                hasil = angka1 - angka2;
+            } else if (operasi === "kali") {
+                hasil = angka1 * angka2;
+            } else if (operasi === "bagi") {
+                if (angka2 === 0) {
+                    alert("Pembagian dengan nol tidak diizinkan.");
+                    return;
+                }
+                hasil = angka1 / angka2;
+            }
+
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+
+</html>
